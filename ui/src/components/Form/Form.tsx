@@ -1,7 +1,7 @@
 import "./form.style.css";
 import React, { ReactElement } from "react";
 import { Button, Container } from "react-bootstrap";
-import { Box, FormControl, InputLabel, Select, OutlinedInput, MenuItem, Chip, FormHelperText } from "@mui/material";
+import { Box, FormControl, InputLabel, Select, OutlinedInput, MenuItem, Chip } from "@mui/material";
 import { ModalComponent } from "../Modal/Model";
 
 export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => {
