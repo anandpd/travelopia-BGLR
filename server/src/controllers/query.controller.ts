@@ -16,6 +16,9 @@ export const QueryController = {
                 intrests: payload.intrests,
                 travelersCount: payload.travelersCount,
                 budget: payload.budget,
+                name: payload.name,
+                email: payload.email,
+                phn: payload.phn
             };
             if (payload.currency) newQuery.currency = payload.currency;
             const dbResponse = await services.dbService.Create(Queries, newQuery);
