@@ -40,11 +40,11 @@ exports.QueryController = {
             };
             if (payload.currency)
                 newQuery.currency = payload.currency;
-            const dbResponse = await services.db.Create(Queries_1.Queries, newQuery);
+            const dbResponse = await services.dbService.Create(Queries_1.Queries, newQuery);
             return (0, middlewares_1.HttpResponse)(res, { message: "Query Crated Successfully !", data: dbResponse });
         }
         catch (error) {
-            return (0, middlewares_1.HttpResponse)(res, { statusCode: constant_1.CONSTANTS.HTTP_STATUS.SERVER_ERROR, data: null, message: error.message });
+            return (0, middlewares_1.HttpResponse)(res, { statusCode: constant_1.CONSTANTS.HTTP_STATUS.SERVER_ERROR, data: null, message: error });
         }
     }
 };

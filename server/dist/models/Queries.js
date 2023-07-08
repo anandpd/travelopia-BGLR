@@ -31,5 +31,8 @@ const schema = new mongoose_1.default.Schema({
         type: String,
         default: "Rs."
     }
+}, {
+    timestamps: true,
+    versionKey: false
 });
 exports.Queries = mongoose_1.default.model(constant_1.CONSTANTS.MODELS.QUERIES, schema);
