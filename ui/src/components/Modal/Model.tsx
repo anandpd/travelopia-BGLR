@@ -1,11 +1,30 @@
 import React, { ReactElement } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useMutation } from "@tanstack/react-query";
+import { postQuery } from "../../mutations/PostQuery";
+let postDataRes: any = null;
 
 export const ModalComponent: React.FC<any> = (props: any): ReactElement => {
   const createPostMutation = useMutation({
-    mutationFn: 
+    mutationFn: (data) => {
+      return postQuery(data).then((responseData) => {
+        postDataRes = responseData;
+      });
+    },
   });
+
+  function handleSubmit() {
+    // @ts-ignore
+    createPostMutation.mutate({
+      countries: ["Thailand", "Indonesia", "Singapore"],
+      intrests: ["Nature", "Adventure", "Heritage"],
+      travelersCount: "9+",
+      budget: "9000000",
+      name: "anand",
+      email: "anand@gmail.com",
+      phn: "8569890580",
+    });
+  }
   return (
     <>
       <Modal show={props.show} onHide={props.handleClose}>
@@ -32,7 +51,7 @@ export const ModalComponent: React.FC<any> = (props: any): ReactElement => {
           <Button variant="secondary" onClick={props.handleClose}>
             Close
           </Button>
-          <Button variant="dark" onClick={props.handleClose}>
+          <Button variant="dark" onClick={handleSubmit}>
             Submit my info
           </Button>
         </Modal.Footer>

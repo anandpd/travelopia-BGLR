@@ -1,0 +1,2 @@
+
+export { postQuery } from './PostQuery';
