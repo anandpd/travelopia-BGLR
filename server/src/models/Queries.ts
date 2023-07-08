@@ -10,7 +10,10 @@ export interface IQueries extends Document {
     intrests: Array<string>,
     travelersCount: Number,
     budget: string,
-    currency?: string
+    currency?: string,
+    name: string,
+    email: string,
+    phn: string
 }
 const schema = new mongoose.Schema({
     countries: [
@@ -36,6 +39,18 @@ const schema = new mongoose.Schema({
     currency: {
         type: String,
         default: "Rs."
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    phn: {
+        type: String,
+        required: true
     }
 }, {
     timestamps: true,

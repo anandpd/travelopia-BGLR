@@ -1,3 +1,3 @@
 import { IQueries } from "../models/Queries";
 
-export type QueryType = Pick<IQueries, "countries" | "intrests" | "travelersCount" | "budget" | "currency">
+export type QueryType = Pick<IQueries, "countries" | "intrests" | "travelersCount" | "budget" | "currency" | "name" | "email" | "phn">
