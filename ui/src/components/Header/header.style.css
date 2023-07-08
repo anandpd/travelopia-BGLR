@@ -1,0 +1,31 @@
+.header-travels-txt {
+    font-weight: 100;
+    color: rgb(189, 137, 7);
+    font-style: italic;
+    text-decoration: none;
+}
+
+.nav-helper-txt {
+    /* display: none; */
+    font-style: italic;
+    opacity: 50%;
+    color: white;
+    margin-left: 10px;
+    font-size: small;
+}
+
+@media only screen and (max-width: 500px){
+    .nav-helper-txt {
+        height: 0px;
+        display: none;
+    }
+}
+
+.nav-link-home {
+    border-right: 1px solid grey !important;
+}
+
+.brandname-txt {
+    text-decoration: none;
+    color: white;
+}

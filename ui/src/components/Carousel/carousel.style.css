@@ -1,0 +1,19 @@
+.carousel-main {
+    height: 100%;
+    /* border: 1px solid red; */
+}
+
+.item {
+    height: 450px !important;
+    object-fit: cover !important;
+}
+
+.main-txt {
+    position: absolute;
+    margin: 20% 20%;
+    z-index: 1;
+}
+
+.carousel-text {
+    color: white;
+}
