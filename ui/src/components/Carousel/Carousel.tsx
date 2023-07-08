@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "./carousel.style.css";
-import { ICarouselDataProps, ICarouselItem } from "../../interfaces/carousel.interface";
+import { ICarouselDataProps } from "../../interfaces/carousel.interface";
 
 export const CarouselComponent = ({ carouselData }: ICarouselDataProps) => {
   const [index, setIndex] = useState(0);

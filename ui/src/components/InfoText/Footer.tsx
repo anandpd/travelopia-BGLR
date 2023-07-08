@@ -1,6 +1,5 @@
 import React, { ReactElement } from "react";
 import "./infotext.style.css";
-import { Alert } from "react-bootstrap";
 
 export const InfoText: React.FC = (): ReactElement => {
   return (

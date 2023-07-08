@@ -1,10 +1,8 @@
-import React, { ReactElement, useEffect } from "react";
 import "./form.style.css";
-import { Container, Form } from "react-bootstrap";
-import { Box, FormControl, InputLabel, Select, OutlinedInput, MenuItem, Chip, useTheme } from "@mui/material";
-import { IFormSelection } from "../../interfaces/form.select.interface";
-import { MultipleSelectChip } from "./MultiSelectForm";
-import { formSelectionData } from "../../utils/data/Formselection";
+import React, { ReactElement } from "react";
+import { Button, Container } from "react-bootstrap";
+import { Box, FormControl, InputLabel, Select, OutlinedInput, MenuItem, Chip, FormHelperText } from "@mui/material";
+import { ModalComponent } from "../Modal/Model";
 
 export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => {
   const ITEM_HEIGHT = 48;
@@ -18,6 +16,11 @@ export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => 
     },
   };
 
+
+  const [show, setShow] = React.useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const [places, setPlaces] = React.useState<Array<string>>([]);
   const [intrests, setIntrests] = React.useState<Array<string>>([]);
   const [count, setCount] = React.useState<string>("");
@@ -27,11 +30,14 @@ export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => 
 
   const handleChange = (event: any) => {
     const { target } = event;
-    if (target.name == "places") setPlaces(typeof target.value === "string" ? target.value.split(",") : target.value);
-    else if (target.name == "intrests") setIntrests(typeof target.value === "string" ? target.value.split(",") : target.value);
-    else if (target.name == "count") setCount(target.value);
-    else if (target.name == "budget") setBudget(target.value);
-    // setPlaces(typeof target.value === "string" ? target.value.split(",") : target.value);
+    if (target.name === "places") setPlaces(typeof target.value === "string" ? target.value.split(",") : target.value);
+    else if (target.name === "intrests") setIntrests(typeof target.value === "string" ? target.value.split(",") : target.value);
+    else if (target.name === "count") setCount(target.value);
+    else if (target.name === "budget") setBudget(target.value);
+  };
+
+  const handleOnClick = () => {
+    handleShow();
   };
 
   return (
@@ -46,7 +52,6 @@ export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => 
             labelId="demo-multiple-chip-label"
             id="demo-multiple-chip"
             multiple
-            style={{ borderRadius: "10px" }}
             name={props.formSelectionData.placesToVisit.key}
             value={places}
             onChange={handleChange}
@@ -77,7 +82,6 @@ export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => 
             labelId="demo-multiple-chip-label"
             id="demo-multiple-chip"
             multiple
-            style={{ borderRadius: "10px" }}
             name={props.formSelectionData.intrests.key}
             value={intrests}
             onChange={handleChange}
@@ -108,7 +112,6 @@ export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => 
             labelId="demo-multiple-chip-label"
             id="demo-multiple-chip"
             multiple={false}
-            style={{ borderRadius: "10px" }}
             name={props.formSelectionData.count.key}
             value={count}
             onChange={handleChange}
@@ -132,7 +135,6 @@ export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => 
             labelId="demo-multiple-chip-label"
             id="demo-multiple-chip"
             multiple={false}
-            style={{ borderRadius: "10px" }}
             name={props.formSelectionData.budget.key}
             value={budget}
             onChange={handleChange}
@@ -146,6 +148,13 @@ export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => 
             ))}
           </Select>
         </FormControl>
+
+        <>
+          <Button type="submit" variant="dark" onClick={handleOnClick} className="form-submit-btn">
+            Submit
+          </Button>
+          <ModalComponent show={show} handleClose={handleClose} handleShow={handleShow} data={{ places, intrests, count, budget }} />
+        </>
       </Container>
     </React.Fragment>
   );

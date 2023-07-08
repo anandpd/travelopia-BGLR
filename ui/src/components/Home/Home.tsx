@@ -12,13 +12,9 @@ export const Home: React.FC = (): ReactElement => {
       <CarouselComponent carouselData={carouselData} />
       <Container>
         <FormSelectComponent formSelectionData={formSelectionData} />
-      </Container>
-      <Container>
         <InfoText />
       </Container>
-      <Container>
         <Footer />
-      </Container>
     </React.Fragment>
   );
 };

@@ -2,7 +2,6 @@ import React, { ReactElement } from "react";
 import "./header.style.css";
 import { Link } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import { CarouselComponent } from "../Carousel/Carousel";
 
 export const Header: React.FC = (props: any): ReactElement => {
   return (
