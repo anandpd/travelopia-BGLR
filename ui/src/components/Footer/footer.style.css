@@ -1,9 +1,13 @@
-.footer-main {
-    background-color: rgb(228, 228, 228);
-    padding: 5%;
-}
 
-.footer-txt-bold {
-    font-weight: bold;
-    font-size: 15px;
+
+.footer-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px dotted black;
+    padding: 5%;
+    opacity: 40%;
+    font-style: italic;
+    font-size: small;
 }

@@ -4,7 +4,7 @@ import { FormSelectComponent } from "../Form/Form";
 import { Container } from "react-bootstrap";
 import { formSelectionData } from "../../utils/data/Formselection";
 import { carouselData } from "../../utils/data/carousel";
-import { Footer } from "../../components";
+import { Footer, InfoText } from "../../components";
 
 export const Home: React.FC = (): ReactElement => {
   return (
@@ -12,6 +12,9 @@ export const Home: React.FC = (): ReactElement => {
       <CarouselComponent carouselData={carouselData} />
       <Container>
         <FormSelectComponent formSelectionData={formSelectionData} />
+      </Container>
+      <Container>
+        <InfoText />
       </Container>
       <Container>
         <Footer />
