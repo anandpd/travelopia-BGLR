@@ -7,7 +7,7 @@ import { CarouselComponent } from "../Carousel/Carousel";
 export const Header: React.FC = (props: any): ReactElement => {
   return (
     <React.Fragment>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar bg="dark" data-bs-theme="dark" fixed="top">
         <Container>
           <Navbar.Brand>
             <Link to="/" className="brandname-txt">
@@ -22,7 +22,6 @@ export const Header: React.FC = (props: any): ReactElement => {
           </Nav>
         </Container>
       </Navbar>
-      <CarouselComponent />
     </React.Fragment>
   );
 };
