@@ -7,9 +7,9 @@ This repo contains all the code related to the task at Travelopia.
 
 ## Tech stack used 
 
-- Backend *Node.js*
+- Backend *Node.js (Express + Typescript)*
 - Frontend *React.js*
-- Backend hosting *Amazon EC2*
+- Backend hosting *Vercel*
 - Frontend hosting *Vercel*
 - Database *MongoDB*
 
@@ -20,13 +20,6 @@ This repo contains all the code related to the task at Travelopia.
 https://travelopia-bglr.vercel.app/
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ananddpd)
-
-# Pre-Requisite*
-Backend is hosted on EC2 instance which is "http" and vercel is "https" so browser will not allow request until backend is upgraded to "https" (which is paid). Please read this article to disable this in your browser and then proceed.
-
-https://support.pearson.com/getsupport/s/article/Chrome-Firefox-Blocked-Mixed-Content-HTTPS-and-HTTP
-
-
 
 
 ## NOTE
