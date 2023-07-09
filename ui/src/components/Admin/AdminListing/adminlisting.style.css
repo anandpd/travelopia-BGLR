@@ -1,0 +1,45 @@
+.listing-container {
+    width: 100%;
+    border: 2px dotted goldenrod;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 5%;
+}
+
+.user-detail-single {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* border: 3px solid darkgreen; */
+}
+.query-detail-single {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    /* border: 3px solid darkgreen; */
+    padding: 1%;
+}
+
+.single-textf {
+    padding-top: 1.5%;
+}
+
+.txt-bold {
+    font-weight: bold;
+}
+
+
+.listing-headline {
+    background-color: rgb(60, 60, 60);
+    color: white;
+    padding: 1%;
+}
+
+.trash-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}

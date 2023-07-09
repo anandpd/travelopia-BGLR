@@ -1,9 +1,10 @@
 import "./app.style.css";
-import {  Route, Routes } from "react-router-dom";
+import {  Navigate, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { AdminDash, Header, Home } from "./components";
+import { AdminDash, AdminListing, Header, Home } from "./components";
 import "react-toastify/dist/ReactToastify.css";
 import { RouteNotFound } from "./components/RouteNotFound/RouteNotFound";
+import { Protected } from "./components/Protected/ProtectedComponent";
 
 function App() {
   return (
@@ -12,7 +13,12 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={ <Home /> }/>
-        <Route path="/admin" element={ <AdminDash /> }/>
+        <Route path="/admin" element={ !localStorage.getItem("isAdmin") ? <AdminDash /> :  <Navigate to="/admin/listing" />} />
+        <Route path="/admin/listing" element={ 
+          <Protected isAdminToken={localStorage.getItem("isAdmin")}>
+            <AdminListing />
+          </Protected>
+         }/>
         <Route path="/*" element={ <RouteNotFound />} />
       </Routes>
     </>
