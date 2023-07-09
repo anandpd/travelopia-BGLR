@@ -18,7 +18,7 @@ function App() {
         <Route
           path="/admin/listing"
           element={
-            <Protected isAdminToken={location?.state?.isAdmin ? location?.state?.isAdmin : localStorage.getItem("isAdmin") ? localStorage.getItem("isAdmin") : null}>
+            <Protected isAdminToken={ localStorage.getItem("isAdmin") ? localStorage.getItem("isAdmin") : null}>
               <AdminListing />
             </Protected>
           }

@@ -16,13 +16,9 @@ export const AdminDash: React.FC<any> = (): ReactElement => {
     onSuccess: (res: any) => {
       // success
       if (res.data) {
-        toast.success(res.data.message);
         localStorage.setItem("isAdmin", "true");
-        navigate("/admin/listing", {
-          state: {
-            isAdmin: "true",
-          },
-        });
+        toast.success(res.data.message);
+        navigate("/admin/listing", {});
       } else if (res.response.data.success === false) {
         toast.error(res.response.data.message);
       }
