@@ -35,11 +35,10 @@ export const ModalComponent: React.FC<any> = (props: IModalProps): ReactElement 
       props.handleClose();
       clearInput();
       toast.success(res.data.message);
-    } else if (res.code == "ERR_NETWORK") {
+    } else if (res.code === "ERR_NETWORK") {
       props.handleClose();
       toast.error("OOps :( Something went wrong on server or maybe server is down.");
     } else {
-      // props.handleClose();
       toast.error(res.response.data.message);
     }
   }

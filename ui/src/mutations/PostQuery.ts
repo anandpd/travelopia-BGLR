@@ -1,6 +1,7 @@
-import axios, { Axios, AxiosError } from 'axios';
+import axios from 'axios';
+import { IMutationData } from '../interfaces/form.select.interface';
 
-export async function postQueryMutation(data: any) {
+export async function postQueryMutation(data: IMutationData) {
     try {
         const responseData = await axios({
             method: 'post',
