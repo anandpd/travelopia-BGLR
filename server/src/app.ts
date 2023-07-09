@@ -12,7 +12,7 @@ const app: Application = express();
 
 morganBody(app);
 app.use(express.json());
-app.use(cors());
+app.use(cors({origin: "*"}));
 app.get('/', async (req, res) => res.send("<p>Travelopia Server</p>"))
 app.use("/v1", routes);
 process.on('unhandledRejection', (e: Error) => {
