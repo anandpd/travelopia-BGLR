@@ -4,7 +4,7 @@ export async function adminLoginMutation(data: { username: string, password: str
     try {
         const responseData = await axios({
             method: 'post',
-            headers: { 'isadmin': "true" },
+            headers: { 'isadmin': "true", "Content-Type": "application/json" },
             url: 'http://3.24.124.171:4000/v1/admin/signin',
             data: { ...data }
         });
