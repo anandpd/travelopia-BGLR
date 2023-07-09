@@ -2,7 +2,7 @@
 import "./carousel.style.css";
 
 // React hooks
-import { useState } from "react";
+import React, { ReactElement, useState } from "react";
 
 // UI
 import { Carousel } from "react-bootstrap";
@@ -10,7 +10,7 @@ import { Carousel } from "react-bootstrap";
 // interfaces
 import { ICarouselDataProps } from "../../interfaces/carousel.interface";
 
-export const CarouselComponent = ({ carouselData }: ICarouselDataProps) => {
+export const CarouselComponent:React.FC<any> = ({ carouselData }: ICarouselDataProps): ReactElement => {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex: number) => {

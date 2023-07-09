@@ -21,12 +21,11 @@ export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => 
     },
   };
 
-  const [show, setShow] = React.useState(false);
-
-  const [places, setPlaces] = React.useState<Array<string>>([]);
-  const [intrests, setIntrests] = React.useState<Array<string>>([]);
-  const [count, setCount] = React.useState<string>("");
-  const [budget, setBudget] = React.useState<string>("");
+  const [show, setShow] = React.useState <boolean> (false);
+  const [places, setPlaces] = React.useState <Array<string>> ([]);
+  const [intrests, setIntrests] = React.useState <Array<string>> ([]);
+  const [count, setCount] = React.useState <string> ("");
+  const [budget, setBudget] = React.useState <string> ("");
 
   const handleChange = (event: any) => {
     const { target } = event;
