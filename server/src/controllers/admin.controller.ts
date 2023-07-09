@@ -24,4 +24,13 @@ export const AdminController = {
             return HttpResponse(res, { success: false, statusCode: CONSTANTS.HTTP_STATUS.SERVER_ERROR, message: error });
         }
     },
+    DeleteQuery: async (req: Request, res: Response): Promise<any> => {
+        try {
+            const id: string = req.params.id;
+            await service.dbService.RemoveByPK(Queries, id);
+            return HttpResponse(res, {});
+        } catch (error: any) {
+            return HttpResponse(res, { success: false, statusCode: CONSTANTS.HTTP_STATUS.SERVER_ERROR, message: error });
+        }
+    },
 }

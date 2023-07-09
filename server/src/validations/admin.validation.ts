@@ -7,3 +7,10 @@ export const AdminSignIn = (): joi.Schema => {
     });
     return schema;
 }
+
+
+export const AdminDeleteQuery = (): joi.Schema => {
+    const schema = joi.string().required();
+    return schema;
+
+}
