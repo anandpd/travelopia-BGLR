@@ -5,7 +5,7 @@ export async function postQueryMutation(data: IMutationData) {
     try {
         const responseData = await axios({
             method: 'post',
-            url: 'http://localhost:4000/v1/query',
+            url: 'http://3.24.124.171:4000/v1/query',
             data: {
                 ...data
             }
