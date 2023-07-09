@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import express, { Application } from 'express';
+import express, { Application, NextFunction, Request, Response } from 'express';
 import { connectDB } from './utils/database.connection';
 import { logger } from './utils/logger';
 import { CONSTANTS } from './utils/constant';
@@ -13,6 +13,13 @@ const app: Application = express();
 morganBody(app);
 app.use(express.json());
 app.use(cors({origin: "*"}));
+const corsMiddleware = function(req:Request, res:Response, next:NextFunction) {
+    res.header('Access-Control-Allow-Origin', 'localhost'); //replace localhost with actual host
+    res.header('Access-Control-Allow-Methods', 'OPTIONS, GET, PUT, PATCH, POST, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With, Authorization');
+    next();
+}
+app.use(corsMiddleware);
 app.get('/', async (req, res) => res.send("<p>Travelopia Server</p>"))
 app.use("/v1", routes);
 process.on('unhandledRejection', (e: Error) => {
