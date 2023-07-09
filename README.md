@@ -26,7 +26,7 @@ https://travelopia-backend-node.vercel.app
 
 
 ## NOTE
-- For admin panel currently username and password are statically checked which is 
+- For admin panel currently username and password are statically checked which is \
 *username : admin* \
 *password: rootAdmin007*
 
