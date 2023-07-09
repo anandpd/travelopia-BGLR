@@ -5,7 +5,7 @@ export async function postQueryMutation(data: IMutationData) {
     try {
         const responseData = await axios({
             method: 'post',
-            url: 'http://3.24.124.171:4000/v1/query',
+            url: 'https://travelopia-backend-node.vercel.app/v1/query',
             headers: { "Content-Type": "application/json"},
             data: {
                 ...data
