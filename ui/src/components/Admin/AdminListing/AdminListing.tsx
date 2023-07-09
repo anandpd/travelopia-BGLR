@@ -1,6 +1,6 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement, useState } from "react";
 import "./adminlisting.style.css";
-import { useQueryClient, useQuery } from "@tanstack/react-query";
+import {  useQuery } from "@tanstack/react-query";
 import { getAdminQueriesMutation } from "../../../mutations";
 import { toast } from "react-toastify";
 import { SingleQueryListing } from "./SingleQuery/SingleQuery";
@@ -17,12 +17,12 @@ export const AdminListing: React.FC<any> = (): ReactElement => {
     refetchOnWindowFocus: false,
     queryFn: () => getAdminQueriesMutation(),
     onSuccess: (res) => {
-      if (res?.code == "ERR_NETWORK") {
+      if (res?.code === "ERR_NETWORK") {
         toast.error("Something went wrong on server or maybe server is down!");
         // @ts-ignore
         setRes({ success: false, message: "SERVER_ERR", data: [] });
       }
-      if (res.data?.success == true) {
+      if (res.data?.success === true) {
         toast.success(res.data.message);
         setRes(res.data);
       }
@@ -38,7 +38,7 @@ export const AdminListing: React.FC<any> = (): ReactElement => {
   }
   if (isLoading) return <h1>Loading ....</h1>;
   if (isError) return <h1>Error : {JSON.stringify(error)}</h1>;
-  if (response.message == "SERVER_ERR") {
+  if (response.message === "SERVER_ERR") {
     return <AlertComponent variant="danger" heading="Something went wrong !" resolver="Please contact Developer to resolve the same" message="Something went wrong on server or maybe server is down." />;
   }
 

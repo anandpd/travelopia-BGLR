@@ -1,11 +1,10 @@
-import React, { ReactElement, ReactEventHandler, RefObject, useEffect, useRef } from "react";
+import React, { ReactElement, RefObject, useRef } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { useMutation } from "@tanstack/react-query";
 import "./admindash.style.css";
 import { adminLoginMutation } from "../../../mutations";
 import { toast } from "react-toastify";
 import { AlertComponent } from "../../Alert/Alert";
-import { Navigate } from "react-router-dom";
 
 export const AdminDash: React.FC<any> = (): ReactElement => {
   const usernameRef: RefObject<any> = useRef("");
