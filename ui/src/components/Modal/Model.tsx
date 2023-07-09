@@ -31,6 +31,7 @@ export const ModalComponent: React.FC<any> = (props: IModalProps): ReactElement 
     stateProps.setCount("");
   }
   function handleSucces(res: any) {
+    console.log("Success ", res);
     if (res?.data) {
       props.handleClose();
       clearInput();
