@@ -1,10 +1,16 @@
+// React hooks
 import React, { ReactElement } from "react";
-import { CarouselComponent } from "../Carousel/Carousel";
-import { FormSelectComponent } from "../Form/Form";
+
+// Components
+import { Footer, InfoText, FormSelectComponent, CarouselComponent } from "../../components";
+
+// UI components
 import { Container } from "react-bootstrap";
+
+// Util Funs.
 import { formSelectionData } from "../../utils/data/Formselection";
 import { carouselData } from "../../utils/data/carousel";
-import { Footer, InfoText } from "../../components";
+
 
 export const Home: React.FC = (): ReactElement => {
   return (

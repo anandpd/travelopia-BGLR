@@ -7,13 +7,12 @@
     align-items: center;
     /* border: 1px solid blueviolet; */
 }
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 700px){
     .form-selection-container {
         margin: 2% 0.5%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        border: 1px solid red;
         height: 100%;
     }
 }
@@ -34,7 +33,6 @@
     justify-content: center;
     align-items: flex-end;
     margin: 2% 0.5%;
-    border: 1px solid red;
 }
 
 .form-container-user{
@@ -42,7 +40,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
-    /* border: 1px solid brown; */
     width: 75%;
 }
 .form-txtf {

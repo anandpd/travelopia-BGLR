@@ -1,6 +1,13 @@
-import { useState } from "react";
-import Carousel from "react-bootstrap/Carousel";
+// CSS
 import "./carousel.style.css";
+
+// React hooks
+import { useState } from "react";
+
+// UI
+import { Carousel } from "react-bootstrap";
+
+// interfaces
 import { ICarouselDataProps } from "../../interfaces/carousel.interface";
 
 export const CarouselComponent = ({ carouselData }: ICarouselDataProps) => {

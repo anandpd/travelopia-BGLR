@@ -1,2 +1,2 @@
 
-export { postQuery } from './PostQuery';
+export { postQueryMutation } from './PostQuery';

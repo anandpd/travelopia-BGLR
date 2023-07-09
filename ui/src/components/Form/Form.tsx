@@ -1,5 +1,10 @@
+// CSS
 import "./form.style.css";
+
+// React hooks
 import React, { ReactElement } from "react";
+
+// UI
 import { Button, Container } from "react-bootstrap";
 import { Box, FormControl, InputLabel, Select, OutlinedInput, MenuItem, Chip } from "@mui/material";
 import { ModalComponent } from "../Modal/Model";
@@ -16,17 +21,12 @@ export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => 
     },
   };
 
-
   const [show, setShow] = React.useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const [places, setPlaces] = React.useState<Array<string>>([]);
   const [intrests, setIntrests] = React.useState<Array<string>>([]);
   const [count, setCount] = React.useState<string>("");
   const [budget, setBudget] = React.useState<string>("");
-
-  // const [personName, setPersonName] = React.useState<string[]>([]);
 
   const handleChange = (event: any) => {
     const { target } = event;
@@ -36,8 +36,9 @@ export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => 
     else if (target.name === "budget") setBudget(target.value);
   };
 
-  const handleOnClick = () => {
-    handleShow();
+  const handleOnClick = (event: any) => {
+    event.preventDefault();
+    setShow(true);
   };
 
   return (
@@ -45,17 +46,18 @@ export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => 
       <Container className="form-selection-container">
         {/* Places Selector */}
         <FormControl sx={{ m: 1, width: 300 }}>
-          <InputLabel className="select-optins-mui" id="demo-multiple-chip-label">
+          <InputLabel className="select-optins-mui" id="place-selector">
             {props.formSelectionData.placesToVisit.heading}
           </InputLabel>
           <Select
-            labelId="demo-multiple-chip-label"
-            id="demo-multiple-chip"
+            labelId="place-selector"
+            id={props.formSelectionData.placesToVisit.key}
             multiple
+            label="place-selector"
             name={props.formSelectionData.placesToVisit.key}
             value={places}
             onChange={handleChange}
-            input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+            input={<OutlinedInput id="place-selector-chip" label="placeSelectoChip" />}
             renderValue={(selected) => (
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                 {selected.map((value) => (
@@ -148,12 +150,17 @@ export const FormSelectComponent: React.FC<any> = (props: any): ReactElement => 
             ))}
           </Select>
         </FormControl>
-
+        <div></div>
         <>
           <Button type="submit" variant="dark" onClick={handleOnClick} className="form-submit-btn">
             Submit
           </Button>
-          <ModalComponent show={show} handleClose={handleClose} handleShow={handleShow} data={{ places, intrests, count, budget }} />
+          <ModalComponent
+            show={show}
+            stateProps={{ places, setPlaces, budget, setBudget, count, setCount, intrests, setIntrests }}
+            handleClose={() => setShow(false)}
+            handleShow={() => setShow(true)}
+          />
         </>
       </Container>
     </React.Fragment>

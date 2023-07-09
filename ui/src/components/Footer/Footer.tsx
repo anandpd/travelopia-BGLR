@@ -1,4 +1,7 @@
+// CSS
 import "./footer.style.css";
+
+// React hooks
 import React, { ReactElement } from "react";
 
 export const Footer: React.FC = (): ReactElement => {

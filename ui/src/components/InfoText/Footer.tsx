@@ -1,5 +1,7 @@
-import React, { ReactElement } from "react";
+// CSS
 import "./infotext.style.css";
+// React hooks
+import React, { ReactElement } from "react";
 
 export const InfoText: React.FC = (): ReactElement => {
   return (

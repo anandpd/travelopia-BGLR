@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios, { Axios, AxiosError } from 'axios';
 
-export async function postQuery(data: any) {
+export async function postQueryMutation(data: any) {
     try {
         const responseData = await axios({
             method: 'post',
@@ -9,10 +9,8 @@ export async function postQuery(data: any) {
                 ...data
             }
         });
-        console.log("Response = ", responseData.data);
-        return responseData.data;
-    } catch (error) {
-        console.log("Something went wrong !!", error);
+        return responseData;
+    } catch (error:any) {
         return error;
     }
 }
