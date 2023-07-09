@@ -10,7 +10,9 @@ export const AdminSignIn = (): joi.Schema => {
 
 
 export const AdminDeleteQuery = (): joi.Schema => {
-    const schema = joi.string().required();
+    const schema = joi.object({
+        id: joi.string().required()
+    })
     return schema;
 
 }

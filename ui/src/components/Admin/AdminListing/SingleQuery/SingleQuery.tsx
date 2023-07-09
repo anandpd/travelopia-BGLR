@@ -4,13 +4,30 @@ import React, { ReactElement, useEffect } from "react";
 import moment from "moment";
 import { IQuery } from "../../../../interfaces/singleQuery";
 import "../adminlisting.style.css";
+import { useMutation } from "@tanstack/react-query";
+import { deleteQueryMutation } from "../../../../mutations";
+import { toast } from "react-toastify";
 
 export const SingleQueryListing: React.FC<any> = (props: IQuery): ReactElement => {
-  useEffect(() => {
-    console.log("Single Listing re-rendred !!");
+  const { mutate, isSuccess, error, data, isLoading } = useMutation({
+    mutationFn: (id: string) => deleteQueryMutation(id),
+    onSuccess: (data) => {
+      toast.success("Query was deleted from database!");
+      props.queryClient.invalidateQueries(["queries"]);
+    },
+    onError: (error: any) => {
+        console.log("Error => ", error);
+    },
   });
+
+  function handleOnClick(e: any) {
+    if (!navigator.onLine) toast.error("You are not connected to n/w")
+    e.preventDefault();
+    mutate(String(e.target.id));
+  }
+
   return (
-    <Container className="listing-container">
+    <Container className="listing-container" id={props._id}>
       <div>
         <h4 className="listing-headline"> User Details </h4>
         <div className="user-detail-single">
@@ -30,7 +47,7 @@ export const SingleQueryListing: React.FC<any> = (props: IQuery): ReactElement =
         <h4 className="listing-headline"> Query Details</h4>
         <div className="query-detail-single">
           <div className="single-textf">
-            <span className="txt-bold"> ID </span>: 64aa8c2f2f898a75bfe5d671
+            <span className="txt-bold"> ID </span>: {props._id}
           </div>
           <div className="single-textf">
             <span className="txt-bold">Created At </span>: {moment(props.createdAt).format("DD/MMMM/YYYY")}
@@ -62,7 +79,9 @@ export const SingleQueryListing: React.FC<any> = (props: IQuery): ReactElement =
         </div>
       </div>
       <div className="trash-btn">
-        <Button variant="danger">Delete Query</Button>
+        <Button variant="danger" onClick={handleOnClick} id={props._id}>
+          Delete Query
+        </Button>
       </div>
     </Container>
   );

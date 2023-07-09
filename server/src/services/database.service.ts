@@ -53,15 +53,15 @@ class DatabaseService {
         } catch (error) {
             throw error;
         }
-    },
+    }
     async RemoveByPK(model: mongoose.Model<any>, id: any) {
         try {
-            const data = await model.findByIdAndRemove(new mongoose.Schema.Types.ObjectId(id));
+            const data = await model.findByIdAndRemove(new mongoose.Types.ObjectId(id));
             return data;
         } catch (error) {
             throw error;
         }
-    },
+    }
 }
 
 export const dbService = new DatabaseService();

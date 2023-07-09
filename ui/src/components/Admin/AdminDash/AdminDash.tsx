@@ -5,19 +5,24 @@ import "./admindash.style.css";
 import { adminLoginMutation } from "../../../mutations";
 import { toast } from "react-toastify";
 import { AlertComponent } from "../../Alert/Alert";
+import { useNavigate } from "react-router-dom";
 
 export const AdminDash: React.FC<any> = (): ReactElement => {
   const usernameRef: RefObject<any> = useRef("");
   const passwordRef: RefObject<any> = useRef("");
-
+  const navigate = useNavigate();
   const { isLoading, mutate, error } = useMutation({
     mutationFn: (data: any) => adminLoginMutation(data),
     onSuccess: (res: any) => {
-      console.log("Sucess => ", res);
       // success
       if (res.data) {
         toast.success(res.data.message);
         localStorage.setItem("isAdmin", "true");
+        navigate("/admin/listing", {
+          state: {
+            isAdmin: "true",
+          },
+        });
       } else if (res.response.data.success === false) {
         toast.error(res.response.data.message);
       }

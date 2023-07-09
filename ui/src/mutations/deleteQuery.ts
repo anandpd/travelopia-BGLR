@@ -1,13 +1,12 @@
 import axios from 'axios';
 
 
-export async function adminLoginMutation(data: { username: string, password: string }): Promise<any> {
+export async function deleteQueryMutation(id: string): Promise<any> {
     try {
         const responseData = await axios({
-            method: 'post',
+            method: 'delete',
             headers: { 'isadmin': "true" },
-            url: 'http://localhost:4000/v1/admin/signin',
-            data: { ...data }
+            url: `http://localhost:4000/v1/admin/query/${id}`,
         });
         return responseData;
     } catch (error: any) {

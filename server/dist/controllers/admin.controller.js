@@ -47,4 +47,14 @@ exports.AdminController = {
             return (0, middlewares_1.HttpResponse)(res, { success: false, statusCode: constant_1.CONSTANTS.HTTP_STATUS.SERVER_ERROR, message: error });
         }
     },
+    DeleteQuery: async (req, res) => {
+        try {
+            const id = req.params.id;
+            await service.dbService.RemoveByPK(models_1.Queries, id);
+            return (0, middlewares_1.HttpResponse)(res, {});
+        }
+        catch (error) {
+            return (0, middlewares_1.HttpResponse)(res, { success: false, statusCode: constant_1.CONSTANTS.HTTP_STATUS.SERVER_ERROR, message: error });
+        }
+    },
 };
