@@ -1,0 +1,12 @@
+
+
+
+.container-404 {
+    border: 1px dotted black;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10%;
+    padding: 5%;
+}
