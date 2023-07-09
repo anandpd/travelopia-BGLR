@@ -23,9 +23,16 @@
 
 .nav-link-home {
     border-right: 1px solid grey !important;
+    text-decoration: none !important;
+    color: white !important;
 }
 
 .brandname-txt {
     text-decoration: none;
     color: white;
+}
+
+.nav-home-txt {
+    color: white;
+    text-decoration: none;
 }

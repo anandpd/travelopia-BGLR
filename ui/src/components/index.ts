@@ -4,3 +4,4 @@ export { FormSelectComponent } from './Form/Form';
 export { Home } from './Home/Home';
 export { InfoText } from './InfoText/InfoText';
 export { Footer } from './Footer/Footer';
+export {AdminDash} from './Admin/AdminDash/AdminDash';

@@ -1,17 +1,20 @@
 import "./app.style.css";
-import { BrowserRouter as Router } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { Header, Home } from "./components";
+import { AdminDash, Header, Home } from "./components";
 import "react-toastify/dist/ReactToastify.css";
+import { RouteNotFound } from "./components/RouteNotFound/RouteNotFound";
 
 function App() {
   return (
     <>
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" />
-      <Router>
-        <Header />
-        <Home />
-      </Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={ <Home /> }/>
+        <Route path="/admin" element={ <AdminDash /> }/>
+        <Route path="/*" element={ <RouteNotFound />} />
+      </Routes>
     </>
   );
 }

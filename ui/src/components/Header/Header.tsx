@@ -20,8 +20,9 @@ export const Header: React.FC = (props: any): ReactElement => {
           </Navbar.Brand>
 
           <Nav className="me-auto">
-            <Nav.Link className="nav-link-home">Home</Nav.Link>
-            {/* <Nav.Link disabled>Features</Nav.Link> */}
+            
+              <Nav.Link className="nav-link-home"> <Link to="/" className="nav-home-txt">Home</Link></Nav.Link>
+
             <Nav.Item className="navbar-text align-right navbar-right nav-helper-txt">Private tailor-made journeys of a lifetime</Nav.Item>
           </Nav>
         </Container>
