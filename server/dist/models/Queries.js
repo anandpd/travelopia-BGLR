@@ -30,6 +30,21 @@ const schema = new mongoose_1.default.Schema({
     currency: {
         type: String,
         default: "Rs."
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    phn: {
+        type: String,
+        required: true
     }
+}, {
+    timestamps: true,
+    versionKey: false
 });
 exports.Queries = mongoose_1.default.model(constant_1.CONSTANTS.MODELS.QUERIES, schema);

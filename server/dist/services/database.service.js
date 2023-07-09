@@ -1,17 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.db = void 0;
-exports.db = {
-    Find: async (model, filter) => {
+exports.dbService = void 0;
+class DatabaseService {
+    async Find(model, filter) {
         try {
-            const data = await model.find(filter);
+            const data = await model.find(filter).sort({ _id: -1 });
             return data;
         }
         catch (error) {
             throw error;
         }
-    },
-    FindOne: async (model, filter) => {
+    }
+    async FindOne(model, filter) {
         try {
             const data = await model.findOne(filter);
             return data;
@@ -19,8 +19,8 @@ exports.db = {
         catch (error) {
             throw error;
         }
-    },
-    Create: async (model, data) => {
+    }
+    async Create(model, data) {
         try {
             const newObj = {
                 ...data
@@ -32,8 +32,8 @@ exports.db = {
         catch (error) {
             throw error;
         }
-    },
-    UpdateByPK: async (model, pk) => {
+    }
+    async UpdateByPK(model, pk) {
         try {
             const data = await model.findByIdAndUpdate(pk, { new: true });
             return data;
@@ -41,8 +41,8 @@ exports.db = {
         catch (error) {
             throw error;
         }
-    },
-    UpdateOne: async (model, filter) => {
+    }
+    async UpdateOne(model, filter) {
         try {
             const data = await model.findOneAndUpdate({ ...filter }, { new: true });
             return data;
@@ -50,8 +50,8 @@ exports.db = {
         catch (error) {
             throw error;
         }
-    },
-    Remove: async (model, filter) => {
+    }
+    async Remove(model, filter) {
         try {
             const data = await model.findOneAndRemove({ ...filter }, { new: true });
             return data;
@@ -59,5 +59,6 @@ exports.db = {
         catch (error) {
             throw error;
         }
-    },
-};
+    }
+}
+exports.dbService = new DatabaseService();
