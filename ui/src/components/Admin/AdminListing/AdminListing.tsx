@@ -8,7 +8,7 @@ import { IQuery } from "../../../interfaces/singleQuery";
 import { AlertComponent } from "../../Alert/Alert";
 
 export const AdminListing: React.FC<any> = (): ReactElement => {
-  localStorage.setItem("isAdmin", "true");
+  // localStorage.setItem("isAdmin", "true");
   const [response, setRes] = useState({ success: null, message: "", data: [] });
   const client = useQueryClient();
   const { isLoading, isError, error } = useQuery({

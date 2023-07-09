@@ -1,4 +1,4 @@
-import React, { ReactElement, RefObject, useRef } from "react";
+import React, { ReactElement, RefObject, useRef, useState } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { useMutation } from "@tanstack/react-query";
 import "./admindash.style.css";
@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 export const AdminDash: React.FC<any> = (): ReactElement => {
   const usernameRef: RefObject<any> = useRef("");
   const passwordRef: RefObject<any> = useRef("");
+
+  const [checked, updatedChecked] = useState<boolean>(false);
   const navigate = useNavigate();
   const { isLoading, mutate, error } = useMutation({
     mutationFn: (data: any) => adminLoginMutation(data),
@@ -18,7 +20,9 @@ export const AdminDash: React.FC<any> = (): ReactElement => {
       if (res.data) {
         localStorage.setItem("isAdmin", "true");
         toast.success(res.data.message);
-        navigate("/admin/listing", {});
+          navigate("/admin/listing", {state: {
+            isAdmin: "true"
+          }});
       } else if (res.response.data.success === false) {
         toast.error(res.response.data.message);
       }
@@ -56,7 +60,8 @@ export const AdminDash: React.FC<any> = (): ReactElement => {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" ref={passwordRef} />
+          <Form.Control type={checked ? "text" : "password"} placeholder="Password" ref={passwordRef} />
+          <Form.Check checked={checked} onClick={() => updatedChecked(!checked)} className="helper-txt" type="checkbox" id="password-txtf" label="Show password ?" />
         </Form.Group>
 
         <Button variant="dark" type="button" onClick={handleSubmit}>

@@ -64,7 +64,7 @@ export const formSelectionData = {
     },
     budget: {
         heading: "Budget per person *",
-        options: ["Rs 4000 - 5000", "Rs 5000 - 6000", "Rs 6000 - 7000", "Rs 7000+"],
+        options: ["Rs. 5000 - 10000", "Rs. 10000 - 15000", "Rs. 15000 - 20000", "Rs. 20000+"],
         canSelectMultiple: false,
         key: "budget"
     }
