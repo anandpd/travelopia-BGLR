@@ -4,9 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "rm -rf dist && tsc -p . && node dist/app.js",
-    "start:watch": "nodemon src/app.ts"
+    "start": "nodemon src/app.ts",
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -29,6 +37,8 @@
     "@types/mongoose": "^5.11.97",
     "@types/node": "^20.3.3",
     "nodemon": "^2.0.22",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^5.0.1",
     "ts-node": "^10.9.1"
   }
 }
