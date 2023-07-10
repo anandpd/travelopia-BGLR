@@ -19,9 +19,6 @@ export const notFoundHandler = (req: Request, res: Response, next: NextFunction)
 }
 
 export const HttpResponse = (res: Response, data: HttpNS.IHandleResponse) => {
-    res.header(`Access-Control-Allow-Origin`, `*`);
-    res.header(`Access-Control-Allow-Methods`, `*`);
-    res.header(`Access-Control-Allow-Headers`, `*`);
     console.log("Http response handler () =========>> ", data.success);
     return res.status(data.statusCode || 200).json({
         success: typeof data.success != 'undefined' ? data.success : true,
