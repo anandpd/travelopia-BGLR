@@ -19,10 +19,11 @@ export const notFoundHandler = (req: Request, res: Response, next: NextFunction)
 }
 
 export const HttpResponse = (res: Response, data: HttpNS.IHandleResponse) => {
+    console.log("HttpHandler ()")
     return res.status(data.statusCode || 200).json({
         success: typeof data.success != 'undefined' ? data.success : true,
-        message: data.message || "Success",
-        data: data.data || null
+        message: data?.message || "Success",
+        data: data?.data || null
     });
 
 }
