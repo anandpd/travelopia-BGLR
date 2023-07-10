@@ -5,7 +5,7 @@
 This repo contains all the code related to the task at Travelopia. 
 
 
-## Tech stack used 
+## Tech stack used ✨
 
 - Backend *Node.js (Express + Typescript)*
 - Frontend *React.js*
@@ -19,7 +19,7 @@ This repo contains all the code related to the task at Travelopia.
 ## App Link 🌐
 https://travelopia-bglr.vercel.app/
 
-## Hosted Server
+## Hosted Server 🌐
 https://travelopia-backend-node.vercel.app
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ananddpd)
