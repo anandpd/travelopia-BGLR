@@ -31,6 +31,6 @@ process.on('uncaughtException', (e: Error) => {
 
 
 app.use(errorHandler);
-app.all('*',notFoundHandler);
+// app.all('*',notFoundHandler);
 connectDB(process.env.DATABASE || CONSTANTS.DATABASE);
 app.listen(PORT, () => logger.info(`Server listening on port ${PORT}`));
