@@ -12,6 +12,7 @@ export const AdminController = {
             const payload: AdminNS.IAdminSignIn = req.body;
             return HttpResponse(res, { success: true, data: { ...payload, isAdmin: true } });
         } catch (error: any) {
+            console.log("Error => ", error);
             return HttpResponse(res, { success: false, statusCode: CONSTANTS.HTTP_STATUS.SERVER_ERROR, message: error });
         }
     },
