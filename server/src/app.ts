@@ -12,7 +12,7 @@ const app: Application = express();
 
 morganBody(app);
 app.use(express.json());
-// app.use(cors({ allowedHeaders: "*", origin: "*", methods: "*" }));
+
 const allowCrossDomain = (req:Request, res:Response, next:NextFunction) => {
     res.header(`Access-Control-Allow-Origin`, `*`);
     res.header(`Access-Control-Allow-Methods`, `*`);
@@ -31,6 +31,6 @@ process.on('uncaughtException', (e: Error) => {
 
 
 app.use(errorHandler);
-app.use(notFoundHandler);
+app.all('*',notFoundHandler);
 connectDB(process.env.DATABASE || CONSTANTS.DATABASE);
 app.listen(PORT, () => logger.info(`Server listening on port ${PORT}`));
