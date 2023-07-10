@@ -31,7 +31,14 @@ const models_1 = require("../models");
 exports.AdminController = {
     SignIn: async (req, res) => {
         try {
+            console.log("In SignIn Function === ");
             const payload = req.body;
+            // res.set("Access-Control-Allow-Origin", "*");
+            // return res.json({
+            //     success: true,
+            //     message: "Success",
+            //     data: {...payload, isAdmin: true}
+            // })
             return (0, middlewares_1.HttpResponse)(res, { success: true, data: { ...payload, isAdmin: true } });
         }
         catch (error) {

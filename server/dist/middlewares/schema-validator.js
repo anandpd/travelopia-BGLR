@@ -12,11 +12,15 @@ const SchemaValidator = (schemas) => {
             if (!error)
                 next();
             logger_1.logger.error("Error while validating => ", error);
-            return (0, http_handler_1.HttpResponse)(res, {
-                statusCode: constant_1.CONSTANTS.HTTP_STATUS.BAD_REQUEST,
-                message: error.message,
-                success: false
-            });
+            console.log(" ================================================ ");
+            if (error) {
+                return (0, http_handler_1.HttpResponse)(res, {
+                    statusCode: constant_1.CONSTANTS.HTTP_STATUS.BAD_REQUEST,
+                    message: error?.message ? error.message : JSON.stringify(error),
+                    success: false
+                });
+            }
+            next();
         });
     };
 };

@@ -20,10 +20,11 @@ const notFoundHandler = (req, res, next) => {
 };
 exports.notFoundHandler = notFoundHandler;
 const HttpResponse = (res, data) => {
+    console.log("HttpHandler ()");
     return res.status(data.statusCode || 200).json({
         success: typeof data.success != 'undefined' ? data.success : true,
-        message: data.message || "Success",
-        data: data.data || null
+        message: data?.message || "Success",
+        data: data?.data || null
     });
 };
 exports.HttpResponse = HttpResponse;
