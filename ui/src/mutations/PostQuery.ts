@@ -5,7 +5,7 @@ export async function postQueryMutation(data: IMutationData) {
     try {
         const responseData = await axios({
             method: 'post',
-            url: 'http://localhost:4000/v1/query',
+            url: 'https://travelopia-backend-node.onrender.com/v1/query',
             data: {
                 ...data
             }

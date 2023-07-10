@@ -6,7 +6,7 @@ export async function adminLoginMutation(data: { username: string, password: str
         const responseData = await axios({
             method: 'post',
             headers: { 'isadmin': "true" },
-            url: 'http://localhost:4000/v1/admin/signin',
+            url: 'https://travelopia-backend-node.onrender.com/v1/admin/signin',
             data: { ...data }
         });
         return responseData;
