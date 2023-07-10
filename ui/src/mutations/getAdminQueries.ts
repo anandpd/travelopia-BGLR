@@ -6,7 +6,7 @@ export async function getAdminQueriesMutation(): Promise<any> {
         const responseData = await axios({
             method: 'get',
             headers: { 'isadmin': "true",  "Content-Type": "application/json" },
-            url: 'https://travelopia-backend-node.vercel.app/v1/admin/queries',
+            url: 'https://travelopia-backend-node.onrender.com/v1/admin/queries',
         });
         return responseData;
     } catch (error: any) {

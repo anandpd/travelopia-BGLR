@@ -6,7 +6,7 @@ export async function deleteQueryMutation(id: string): Promise<any> {
         const responseData = await axios({
             method: 'delete',
             headers: { 'isadmin': "true", "Content-Type": "application/json" },
-            url: `https://travelopia-backend-node.vercel.app/admin/query/${id}`,
+            url: `https://travelopia-backend-node.onrender.com/admin/query/${id}`,
         });
         return responseData;
     } catch (error: any) {
