@@ -13,11 +13,14 @@ export const SchemaValidator = (schemas: Array<IJoi.Schema>) => {
             if (!error) next();
             logger.error("Error while validating => ", error);
             console.log(" ================================================ ");
-            return HttpResponse(res, {
-                statusCode: CONSTANTS.HTTP_STATUS.BAD_REQUEST,
-                message: error?.message ? error.message: JSON.stringify(error),
-                success: false
-            });
+            if (error) {
+                return HttpResponse(res, {
+                    statusCode: CONSTANTS.HTTP_STATUS.BAD_REQUEST,
+                    message: error?.message ? error.message: JSON.stringify(error),
+                    success: false
+                });
+            }
+            next();
         })
 
     }
