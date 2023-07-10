@@ -22,6 +22,7 @@ export const QueryController = {
             };
             if (payload.currency) newQuery.currency = payload.currency;
             const dbResponse = await services.dbService.Create(Queries, newQuery);
+            console.log("Query created with id = ", dbResponse._id);
             return HttpResponse(res, { message: "Query Crated Successfully !", data: dbResponse });
         } catch (error: any) {
             return HttpResponse(res, { statusCode: CONSTANTS.HTTP_STATUS.SERVER_ERROR, data: null, message: error });
