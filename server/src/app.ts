@@ -22,15 +22,15 @@ const allowCrossDomain = (req:Request, res:Response, next:NextFunction) => {
 app.use(allowCrossDomain);
 app.get('/', async (req, res) => res.send("<p>Travelopia Server</p>"))
 app.use("/v1", routes);
+
+
+app.use(errorHandler);
+app.use(notFoundHandler);
 process.on('unhandledRejection', (e: Error) => {
     logger.error("unhandledRejection", e);
 });
 process.on('uncaughtException', (e: Error) => {
     logger.error("uncaughtException", e);
 });
-
-
-app.use(errorHandler);
-app.use(notFoundHandler);
 connectDB(process.env.DATABASE || CONSTANTS.DATABASE);
 app.listen(PORT, () => logger.info(`Server listening on port ${PORT}`));
