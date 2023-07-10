@@ -11,8 +11,8 @@ export const SchemaValidator = (schemas: Array<IJoi.Schema>) => {
             const { schema, on } = s;
             const { error, value } = schema.validate(req[on], { errors: { wrap: { label: '' } } });
             if (!error) next();
-            logger.error("Error while validating => ", error);
-            console.log(" ================================================ ");
+            logger.error("Error while validating => ", JSON.stringify(error));
+            console.log("Type ===========> ", typeof error);
             if (error) {
                 return HttpResponse(res, {
                     statusCode: CONSTANTS.HTTP_STATUS.BAD_REQUEST,
@@ -20,7 +20,6 @@ export const SchemaValidator = (schemas: Array<IJoi.Schema>) => {
                     success: false
                 });
             }
-            next();
         })
 
     }
