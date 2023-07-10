@@ -7,9 +7,7 @@ export async function postQueryMutation(data: IMutationData) {
             method: 'post',
             url: 'https://travelopia-backend-node.onrender.com/v1/query',
             headers: { "Content-Type": "application/json"},
-            data: {
-                ...data
-            }
+            data: {  ...data  }
         });
         return responseData;
     } catch (error:any) {
