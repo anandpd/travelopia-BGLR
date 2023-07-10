@@ -10,7 +10,7 @@ import routes from './routes';
 import { errorHandler, notFoundHandler } from './middlewares';
 const app: Application = express();
 
-morganBody(app);
+// morganBody(app);
 app.use(express.json());
 
 const allowCrossDomain = (req:Request, res:Response, next:NextFunction) => {
