@@ -11,7 +11,13 @@ export const AdminController = {
         try {
             console.log("In SignIn Function === ");
             const payload: AdminNS.IAdminSignIn = req.body;
-            return HttpResponse(res, { success: true, data: { ...payload, isAdmin: true } });
+            res.set("Access-Control-Allow-Origin", "*");
+            return res.json({
+                success: true,
+                message: "Success",
+                data: {...payload, isAdmin: true}
+            })
+            // return HttpResponse(res, { success: true, data: { ...payload, isAdmin: true } });
         } catch (error: any) {
             return HttpResponse(res, { success: false, statusCode: CONSTANTS.HTTP_STATUS.SERVER_ERROR, message: error });
         }
