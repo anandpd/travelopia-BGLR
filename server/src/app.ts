@@ -12,7 +12,7 @@ const app: Application = express();
 
 morganBody(app);
 app.use(express.json());
-app.use(cors({ origin: "*" }));
+app.use(cors({ allowedHeaders: "*", origin: "*", methods: "*" }));
 // const corsMiddleware = function(req:Request, res:Response, next:NextFunction) {
 //     res.header('Access-Control-Allow-Origin', '*');
 //     res.header('Access-Control-Allow-Methods', '*');
