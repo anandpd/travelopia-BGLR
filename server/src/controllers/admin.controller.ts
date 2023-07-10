@@ -9,6 +9,7 @@ import { IQueryInstance } from "../models/Queries";
 export const AdminController = {
     SignIn: async (req: Request, res: Response): Promise<any> => {
         try {
+            console.log("In SignIn Function === ");
             const payload: AdminNS.IAdminSignIn = req.body;
             return HttpResponse(res, { success: true, data: { ...payload, isAdmin: true } });
         } catch (error: any) {
