@@ -12,14 +12,14 @@ const app: Application = express();
 
 morganBody(app);
 app.use(express.json());
-// app.use(cors({origin: "*"}));
-const corsMiddleware = function(req:Request, res:Response, next:NextFunction) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', '*');
-    res.header('Access-Control-Allow-Headers', '*');
-    next();
-}
-app.use(corsMiddleware);
+app.use(cors());
+// const corsMiddleware = function(req:Request, res:Response, next:NextFunction) {
+//     res.header('Access-Control-Allow-Origin', '*');
+//     res.header('Access-Control-Allow-Methods', '*');
+//     res.header('Access-Control-Allow-Headers', '*');
+//     next();
+// }
+// app.use(corsMiddleware);
 app.get('/', async (req, res) => res.send("<p>Travelopia Server</p>"))
 app.use("/v1", routes);
 process.on('unhandledRejection', (e: Error) => {
