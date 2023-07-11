@@ -49,12 +49,12 @@ export const AdminListing: React.FC<any> = (): ReactElement => {
     <React.Fragment>
       {response.data.map((eachObj: IQuery) => (
         <SingleQueryListing
-          name="Anand"
-          email="anand@yopmail.com"
-          phn="8569890580"
-          createdAt="2023-07-09T10:30:07.476Z"
-          travelersCount="2"
-          budget="Rs 10000+"
+          name={eachObj.name}
+          email={eachObj.email}
+          phn={eachObj.phn}
+          createdAt={eachObj.createdAt}
+          travelersCount={eachObj.travelersCount}
+          budget={eachObj.budget}
           countries={eachObj.countries}
           intrests={eachObj.intrests}
           queryClient={client}
